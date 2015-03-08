@@ -8,7 +8,7 @@ def plot(x, y, rows=None, columns=None):
     if not rows or not columns:
         rows, columns = get_terminal_size()
     # offset for caption
-    rows -= 5
+    rows -= 4
 
     # Scale points such that they fit on canvas
     scale_x = float(columns-1)/(max(x)-min(x)) if x and max(x)-min(x) != 0 else columns
@@ -28,12 +28,11 @@ def plot(x, y, rows=None, columns=None):
         print(row)
 
     # Print scale
-    print('\n', ''.join([
-        'Min x: ',  str(min(x)),
-        ' Max x: ', str(max(x)),
-        ' Min y: ', str(min(y)),
-        ' Max y: ', str(max(y)),
-        '\n'
+    print(''.join([
+        '\nMin x: ', str(min(x)),
+        ' Max x: ',  str(max(x)),
+        ' Min y: ',  str(min(y)),
+        ' Max y: ',  str(max(y))
     ]))
 
 
