@@ -17,8 +17,8 @@ setup(
         'Environment :: Console',
         'Operating System :: POSIX',
         'Topic :: Scientific/Engineering :: Visualization'
-    ]
-    keywords='plot terminal graph console'
+    ],
+    keywords='plot terminal graph console',
     packages=['terminalplot'],
     zip_safe=True,
     entry_points={
