@@ -27,7 +27,7 @@ Example:
 import argparse
 from argparse import RawTextHelpFormatter
 
-from .terminalplot import plot, get_terminal_size
+from terminalplot import plot, get_terminal_size
 
 def list_floats(value):
 	values = value.split()
@@ -37,11 +37,10 @@ def list_floats(value):
 
 parser = argparse.ArgumentParser( description='Minimalistic plot of a graph in terminal.',
                                   formatter_class=RawTextHelpFormatter,
-                                  epilog=
-'Either -s or -x and -y have to be provided.\n\
-\nExample:\n\
-\tplot -x \'-1 0 1 2 3 4\' -y \'0.1 0.2 0.23 0.234 0.24\'\n\
-\tplot -s' )
+                                  epilog=("Either -s or -x and -y have to be provided.\n"
+                                  	      "\nExample:\n"
+                                          "\tplot -x '-1 0 1 2 3 4' -y '0.1 0.2 0.23 0.234 0.24'\n"
+                                          "\tplot -s") )
 
 parser.add_argument( '-v',
 	                 '--version',
@@ -51,7 +50,8 @@ parser.add_argument( '-v',
 parser.add_argument( '-x',
 	                 type=list_floats,
 	                 action='store',
-                     help='Values on x-axis. If empty, values on y-axis will be plotted according to their indices, E.g. (0, y0), (1, y1), ...' )
+                     help=("Values on x-axis. If empty, values on y-axis will be plotted "
+                           "according to their indices, E.g. (0, y0), (1, y1), ...") )
 
 parser.add_argument( '-y',
 	                 action='store',
@@ -64,7 +64,7 @@ parser.add_argument( '-s',
 	                 help='Returns size of terminal <columns>, <rows>. No plot will be generated.' )
 
 
-if __name__ == '__main__':
+def main():
 
 	args = vars(parser.parse_args())
 
