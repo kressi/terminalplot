@@ -1,5 +1,8 @@
 # Changelog terminalplot
 
+## Version 0.2.1 (2015-03-09)
+- Added classifiers
+
 ## Version 0.2 (2015-03-09)
 - Added command line interface
 
