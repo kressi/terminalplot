@@ -10,7 +10,6 @@ setup(
     license='AGPL',
     classifiers=[
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: GNU Affero General Public License v3',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',
