@@ -45,7 +45,7 @@ parser = argparse.ArgumentParser( description='Minimalistic plot of a graph in t
 parser.add_argument( '-v',
 	                 '--version',
 	                 action='version',
-	                 version='%(prog)s 0.1.3' )
+	                 version='%(prog)s 0.2.0' )
 
 parser.add_argument( '-x',
 	                 type=list_floats,
