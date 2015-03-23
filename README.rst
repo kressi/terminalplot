@@ -16,14 +16,13 @@ Usage
 
 Command Line
 ============
-Get size of terminal emulator (tty)
-.. code-block::
+Get size of terminal emulator (tty)::
 
   $ plot -s
   > Rows: 25 Columns: 80
 
-Plot some points
-.. code-block::
+Plot some points::
+
   $ plot -x '-1 0 1 2 3 4' -y '0.1 0.2 0.23 0.234 0.24'
 
 API
