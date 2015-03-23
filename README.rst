@@ -27,7 +27,7 @@ Plot some points::
 
 API
 ===
-Plotting a graph:: python
+Plotting a graph::
 
   from terminalplot import plot
   x = range(100)
@@ -35,7 +35,7 @@ Plotting a graph:: python
   plot(x, y)
 
 
-Get size of current terminal window:: python
+Get size of current terminal window::
 
   from terminalplot import get_terminal_size
   get_terminal_size()
