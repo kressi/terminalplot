@@ -1,4 +1,6 @@
 # terminalplot
+[![Build Status](https://travis-ci.org/kressi/terminalplot.svg)](https://travis-ci.org/kressi/terminalplot)
+
 ![Console plot](/plot.png)
 
 ## Installation
