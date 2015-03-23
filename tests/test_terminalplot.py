@@ -13,7 +13,7 @@ class TestTerminalPlot(unittest.TestCase):
         try:
             out = StringIO()
             sys.stdout = out
-            terminalplot.plot(x=[1,2,3],y=[1,2,3],rows=7,columns=3)
+            terminalplot.plot( x=[1,2,3], y=[1,2,3], rows=7, columns=3 )
             output = out.getvalue()
             expected_output = ( "  *\n"
                                 " * \n"
