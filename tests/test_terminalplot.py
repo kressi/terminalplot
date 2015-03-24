@@ -1,7 +1,13 @@
 import unittest
 import terminalplot
 import sys
-from StringIO import StringIO
+
+try:
+    # Python 3
+    from io import StringIO
+except ImportError:
+    # Python 2
+    from StringIO import StringIO
 
 class TestTerminalPlot(unittest.TestCase):
 
