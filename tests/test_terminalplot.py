@@ -2,11 +2,9 @@ import unittest
 import terminalplot
 import sys
 
-try:
-    # Python 3
+if sys.version_info.major > 2:
     from io import StringIO
-except ImportError:
-    # Python 2
+else:
     from StringIO import StringIO
 
 class TestTerminalPlot(unittest.TestCase):
