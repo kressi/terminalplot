@@ -10,7 +10,7 @@ script:
 
 deploy:
   provider: pypi
-  user: $pypi_username
+  user: kressi
   password: 
     secure: $pypi_secure_password
   distributions: sdist bdist_wheel
