@@ -1,5 +1,8 @@
 # Changelog terminalplot
 
+## Version 0.2.3 (2015-05-10)
+- Fixed issue with cli in python 3
+
 ## Version 0.2.2 (2015-04-27)
 - Added travis
 

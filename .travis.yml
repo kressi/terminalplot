@@ -12,7 +12,7 @@ deploy:
   provider: pypi
   user: kressi
   password: 
-    secure: $pypi_secure_password
+    secure:"wZ1owpyO4lHIflg7z0Jn2Qp7mZew7nDKB6TxYLC598zDyi3Gp1Zelz0idhGNaOpxxLcUDgcELKWoVfPW14BHybwYil8Z/+YkHnl7y+a9mYOJPI6mF9jHcGtGdKBPA91eLuvRG+iBxn2VItE5Dmvv8CU5KPZAHLW83AXd/ITdNlw=" 
   distributions: sdist bdist_wheel
   on:
     tags: true

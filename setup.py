@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='terminalplot',
-    version='0.2.2',
+    version='0.2.3',
     description='Plot points in terminal',
     url='http://github.com/kressi/terminalplot',
     author='Michael Kressibucher',
