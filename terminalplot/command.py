@@ -31,10 +31,10 @@ from terminalplot import plot, get_terminal_size
 
 
 def list_floats(value):
-    values = value.split()
+    values = [float(v) for v in value.split()]
     if len(values) == 0:
         raise argparse.ArgumentError
-    return map(float, values)
+    return values
 
 parser = argparse.ArgumentParser(description='Minimalistic plot of a graph in terminal.',
                                  formatter_class=RawTextHelpFormatter,
