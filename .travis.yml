@@ -1,18 +1,15 @@
 language: python
-
 python:
 - '2.7'
 - '3.2'
 - '3.3'
-
 script:
 - nosetests
-
 deploy:
   provider: pypi
   user: kressi
-  password: 
-    secure:"wZ1owpyO4lHIflg7z0Jn2Qp7mZew7nDKB6TxYLC598zDyi3Gp1Zelz0idhGNaOpxxLcUDgcELKWoVfPW14BHybwYil8Z/+YkHnl7y+a9mYOJPI6mF9jHcGtGdKBPA91eLuvRG+iBxn2VItE5Dmvv8CU5KPZAHLW83AXd/ITdNlw=" 
+  password:
+    secure: $pypi_secure_password
   distributions: sdist bdist_wheel
   on:
     tags: true
