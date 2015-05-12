@@ -1,8 +1,10 @@
 from setuptools import setup
 
+exec(open('terminalplot/version.py').read())
+
 setup(
     name='terminalplot',
-    version='0.2.3',
+    version=__version__,
     description='Plot points in terminal',
     url='http://github.com/kressi/terminalplot',
     author='Michael Kressibucher',
