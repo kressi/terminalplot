@@ -10,19 +10,14 @@ else:
 import terminalplot
 from terminalplot import command as cli
 
-
 @contextmanager
 def capture_sys_output():
-
     capture_out = StringIO()
-
     try:
         sys.stdout = capture_out
         yield capture_out
-
     finally:
         sys.stdout = sys.__stdout__
-
 
 class TestTerminalPlot(unittest.TestCase):
 
@@ -48,10 +43,8 @@ class TestCommand(unittest.TestCase):
         self.assertEqual(cli.list_floats("1 0.1 -0.3"), [1, 0.1, -0.3])
 
     def test_parser(self):
-
         parser = cli.make_parser()
         args   = parser.parse_args(['-x', '1 0.1 -0.3', '-y', '5 0 0'])
-
         self.assertEqual(args.x, [1, 0.1, -0.3])
         self.assertEqual(args.y, [5, 0, 0])
         self.assertFalse(args.terminal_size)
