@@ -27,8 +27,9 @@ def capture_sys_output():
 class TestTerminalPlot(unittest.TestCase):
 
     def test_get_size(self):
-        terminal_size = terminalplot.get_terminal_size()
-        self.assertTrue(type(terminal_size) is tuple)
+        rows, columns = terminalplot.get_terminal_size()
+        self.assertIsInstance(rows, int)
+        self.assertIsInstance(columns, int)
 
     def test_plot(self):
 
