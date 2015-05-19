@@ -75,7 +75,7 @@ def main():
 
     if args.y:
         y = args.y
-        x = args.x if args.x else range(len(y))
+        x = args.x or range(len(y))
         plot(x, y)
 
     if args.terminal_size:
