@@ -79,8 +79,7 @@ def main():
         plot(x, y)
 
     if args.terminal_size:
-        rc = get_terminal_size()
-        print(''.join(['Rows: ', str(rc[0]), ' Columns: ', str(rc[1])]))
+        print("Rows: %s Columns: %s" % get_terminal_size())
 
 if __name__ == '__main__':
     main()
