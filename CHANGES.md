@@ -1,5 +1,9 @@
 # Changelog terminalplot
 
+## Version 0.2.4 (2015-05-26)
+- Added tests
+- Changed licence to GPL
+
 ## Version 0.2.3 (2015-05-10)
 - Fixed issue with cli in python 3
 
