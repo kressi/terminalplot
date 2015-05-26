@@ -79,7 +79,7 @@ def main():
         plot(x, y)
 
     if args.terminal_size:
-        print("Rows: {}, Columns: {}".format(*get_terminal_size))
+        print("Rows: {}, Columns: {}".format(*get_terminal_size()))
 
 if __name__ == '__main__':
     main()

@@ -1,6 +1,6 @@
 # Changelog terminalplot
 
-## Version 0.2.4 (2015-05-26)
+## Version 0.2.5 (2015-05-26)
 - Added tests
 - Changed licence to GPL
 
