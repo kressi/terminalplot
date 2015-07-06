@@ -1,5 +1,6 @@
 # terminalplot
 [![Build Status](https://travis-ci.org/kressi/terminalplot.svg)](https://travis-ci.org/kressi/terminalplot)
+[![PyPi Version](https://img.shields.io/pypi/v/terminalplot.svg)](https://pypi.python.org/pypi/terminalplot)
 
 ![Console plot](/plot.png)
 
