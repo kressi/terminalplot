@@ -1,9 +1,7 @@
 language: python
 python:
 - '2.7'
-- '3.2'
-- '3.3'
-- '3.4'
+- '3.5'
 - 'pypy'
 - 'pypy3'
 script:
@@ -16,4 +14,4 @@ deploy:
   distributions: sdist bdist_wheel
   on:
     tags: true
-    condition: $TRAVIS_PYTHON_VERSION = '3.4'
+    condition: $TRAVIS_PYTHON_VERSION = '3.5'

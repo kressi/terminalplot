@@ -1,12 +1,24 @@
 from setuptools import setup
+from codecs import open
+from os import path
 
-exec(open('terminalplot/version.py').read())
+here = path.abspath(path.dirname(__file__))
+
+with open( path.join(here, 'terminalplot','version.py'),
+           encoding='utf-8' ) as f:
+    exec(f.read())
+
+with open( path.join(here, 'README.rst'),
+           encoding='utf-8' ) as f:
+    readme = f.read()
 
 setup(
     name='terminalplot',
     version=__version__,
     description='Plot points in terminal',
-    url='http://github.com/kressi/terminalplot',
+    long_description=readme,
+    url='https://github.com/kressi/terminalplot',
+    download_url='https://github.com/kressi/terminalplot/tarball/v'+__version__,
     author='Michael Kressibucher',
     author_email='michael.kressibucher@gmail.com',
     license='GPL',
@@ -19,7 +31,7 @@ setup(
         'Operating System :: POSIX',
         'Topic :: Scientific/Engineering :: Visualization'
     ],
-    keywords='plot terminal graph console',
+    keywords=['plot', 'terminal', 'graph', 'console'],
     packages=['terminalplot'],
     zip_safe=True,
     entry_points={
