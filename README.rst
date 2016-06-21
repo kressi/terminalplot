@@ -8,7 +8,9 @@ terminalplot
 .. image:: https://img.shields.io/pypi/v/terminalplot.svg
     :alt: PyPi Version
     :target: https://pypi.python.org/pypi/terminalplot
-
+.. image:: https://codeclimate.com/github/kressi/terminalplot/badges/gpa.svg
+   :target: https://codeclimate.com/github/kressi/terminalplot
+   :alt: Code Climate
 
 Terminalplot is a minimalistic packgage, that only prints points
 to the terminal. It does not have any dependencies.
