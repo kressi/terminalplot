@@ -4,8 +4,12 @@ python:
 - '3.5'
 - 'pypy'
 - 'pypy3'
+install:
+- pip install coveralls
 script:
-- nosetests
+- nosetests --with-coverage --cover-package=terminalplot
+after_success:
+  coveralls
 deploy:
   provider: pypi
   user: kressi
