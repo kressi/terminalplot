@@ -15,12 +15,8 @@ def plot(x, y, rows=None, columns=None):
     rows -= 4
 
     # Scale points such that they fit on canvas
-    scale_x = float(columns - 1) / \
-        (max(x) - min(x)) if x and max(x) - min(x) != 0 else columns
-    scale_y = float(rows - 1) / \
-        (max(y) - min(y)) if y and max(y) - min(y) != 0 else rows
-    x_scaled = [int((i - min(x)) * scale_x) for i in x]
-    y_scaled = [int((i - min(y)) * scale_y) for i in y]
+    x_scaled = scale(x, columns)
+    y_scaled = scale(y, rows)
 
     # Create empty canvas
     canvas = [[' ' for _ in range(columns)] for _ in range(rows)]
@@ -41,6 +37,15 @@ def plot(x, y, rows=None, columns=None):
         ' Max y: ',  str(max(y))
     ]))
 
+def scale(x, length):
+    """
+    Scale points in 'x', such that distance between
+    max(x) and min(x) equals to 'length'. min(x)
+    will be moved to 0.
+    """
+    s = float(length - 1) / \
+        (max(x) - min(x)) if x and max(x) - min(x) != 0 else length
+    return [int((i - min(x)) * s) for i in x]
 
 def get_terminal_size():
     try:
