@@ -19,3 +19,12 @@ deploy:
   on:
     tags: true
     condition: $TRAVIS_PYTHON_VERSION = '3.5'
+deploy:
+  provider: pypi
+  server: https://test.pypi.org/
+  user: "__token__"
+  password: "pypi-AgENdGVzdC5weXBpLm9yZwIkYjcxZDIwMTgtYzczOC00NjQyLWEzZjAtYmM4NGZlNGZlODZmAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiCG2NKKCcYBW5OY02J-jjqHpJsgxU2dWV9WWqj9F5ZbIw"
+  distributions: sdist bdist_wheel
+  on:
+    branch: develop
+    condition: $TRAVIS_PYTHON_VERSION = '3.5'
