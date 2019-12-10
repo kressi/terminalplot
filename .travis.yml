@@ -18,6 +18,7 @@ matrix:
         - pip install --upgrade pip
       install:
         - pip install coveralls --user
+        - pip install nose --user
         - ls -al $(python -c 'import site; print(site.USER_BASE)')/bin
       script:
         - nosetests --with-coverage --cover-package=terminalplot
@@ -31,6 +32,7 @@ matrix:
         - python3 --version
       install:
         - sudo pip3 install coveralls
+        - sudo pip3 install nose
       script:
         - nosetests --with-coverage --cover-package=terminalplot
       after_success: coveralls
