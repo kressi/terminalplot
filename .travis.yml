@@ -15,10 +15,10 @@ matrix:
         - python --version
         - export PATH=$(python -c 'import site; print(site.USER_BASE)')/bin:$PATH
         - echo $PATH
-        - ls -al $(python -c 'import site; print(site.USER_BASE)')/bin
         - pip install --upgrade pip
       install:
         - pip install coveralls --user
+        - ls -al $(python -c 'import site; print(site.USER_BASE)')/bin
       script:
         - nosetests --with-coverage --cover-package=terminalplot
       after_success: coveralls
