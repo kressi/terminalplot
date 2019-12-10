@@ -10,22 +10,24 @@ matrix:
   include:
     - name: "Python 2 on macOS"
       os: osx
+      sudo: required
       language: generic
       before_install:
         - python --version
       install:
-        - pip install coveralls --user
+        - sudo pip install coveralls
       script:
         - nosetests --with-coverage --cover-package=terminalplot
       after_success: coveralls
   include:
     - name: "Python 3 on macOS"
       os: osx
+      sudo: required
       language: generic
       before_install:
         - python3 --version
       install:
-        - pip3 install coveralls --user
+        - sudo pip3 install coveralls
       script:
         - nosetests --with-coverage --cover-package=terminalplot
       after_success: coveralls
