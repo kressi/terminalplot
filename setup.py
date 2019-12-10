@@ -14,7 +14,7 @@ with codecs.open( os.path.join(here, 'README.rst'),
 
 setuptools.setup(
     name='terminalplot',
-    version=__version__ + 'dev' + os.getenv('TRAVIS_JOB_NUMBER', ''),
+    version=__version__ + '.dev' + os.getenv('TRAVIS_BUILD_NUMBER', ''),
     description='Plot points in terminal',
     long_description=readme,
     url='https://github.com/kressi/terminalplot',
