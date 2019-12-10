@@ -14,6 +14,8 @@ matrix:
       before_install:
         - python --version
         - export PATH=$(python -c 'import site; print(site.USER_BASE)')/bin:$PATH
+        - echo $PATH
+        - ls -al $(python -c 'import site; print(site.USER_BASE)')/bin
         - pip install --upgrade pip
       install:
         - pip install coveralls --user
