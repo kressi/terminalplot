@@ -13,9 +13,8 @@ matrix:
       language: generic
       before_install:
         - python --version
-        - python -c 'import site; print(site.USER_BASE)'
-        - export PATH=$(python -c 'import site; print(site.USER_BASE)'):$PATH
-        - echo $PATH
+        - export PATH=$(python -c 'import site; print(site.USER_BASE)')/bin:$PATH
+        - pip install --upgrade pip
       install:
         - pip install coveralls --user
       script:
