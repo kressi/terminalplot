@@ -13,7 +13,9 @@ matrix:
       language: generic
       before_install:
         - python --version
+        - python -c 'import site; print(site.USER_BASE)'
         - export PATH=$(python -c 'import site; print(site.USER_BASE)'):$PATH
+        - echo $PATH
       install:
         - pip install coveralls --user
       script:
@@ -55,7 +57,7 @@ deploy:
   provider: pypi
   server: https://test.pypi.org/legacy/
   user: "__token__"
-  password: "pypi-AgENdGVzdC5weXBpLm9yZwIkYjcxZDIwMTgtYzczOC00NjQyLWEzZjAtYmM4NGZlNGZlODZmAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiCG2NKKCcYBW5OY02J-jjqHpJsgxU2dWV9WWqj9F5ZbIw"
+  #password: "pypi-AgENdGVzdC5weXBpLm9yZwIkYjcxZDIwMTgtYzczOC00NjQyLWEzZjAtYmM4NGZlNGZlODZmAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiCG2NKKCcYBW5OY02J-jjqHpJsgxU2dWV9WWqj9F5ZbIw"
   distributions: sdist bdist_wheel
   on:
     branch: develop
