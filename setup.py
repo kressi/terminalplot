@@ -1,20 +1,20 @@
-from setuptools import setup
-from codecs import open
-from os import path
+import setuptools
+import codecs
+import os
 
-here = path.abspath(path.dirname(__file__))
+here = os.path.absos.path(os.path.dirname(__file__))
 
-with open( path.join(here, 'terminalplot','version.py'),
-           encoding='utf-8' ) as f:
+with codecs.open( os.path.join(here, 'terminalplot','version.py'),
+                  encoding='utf-8' ) as f:
     exec(f.read())
 
-with open( path.join(here, 'README.rst'),
-           encoding='utf-8' ) as f:
+with codecs.open( os.path.join(here, 'README.rst'),
+                  encoding='utf-8' ) as f:
     readme = f.read()
 
-setup(
+setuptools.setup(
     name='terminalplot',
-    version=__version__,
+    version=__version__ + 'dev' + os.getenv('TRAVIS_JOB_NUMBER', ''),
     description='Plot points in terminal',
     long_description=readme,
     url='https://github.com/kressi/terminalplot',
