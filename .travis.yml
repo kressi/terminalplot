@@ -1,15 +1,34 @@
 language: python
 
-os:
-  - linux
-  - osx
-  - windows
-
 python:
   - '2.7'
   - '3.8'
   - 'pypy'
   - 'pypy3'
+
+matrix:
+  include:
+    - name: "Python 2 on macOS"
+      os: osx
+      language: generic
+      before_install:
+        - python --version
+      install:
+        - pip install coveralls --user
+      script:
+        - nosetests --with-coverage --cover-package=terminalplot
+      after_success: coveralls
+  include:
+    - name: "Python 3 on macOS"
+      os: osx
+      language: generic
+      before_install:
+        - python3 --version
+      install:
+        - pip3 install coveralls --user
+      script:
+        - nosetests --with-coverage --cover-package=terminalplot
+      after_success: coveralls
 
 install:
   - pip install coveralls
@@ -38,4 +57,4 @@ deploy:
   distributions: sdist bdist_wheel
   on:
     branch: develop
-    skip_existing: true
+    condition: $TRAVIS_OS_NAME == 'linux' && $TRAVIS_PYTHON_VERSION = '3.8'
