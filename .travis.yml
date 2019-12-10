@@ -19,6 +19,7 @@ matrix:
       install:
         - pip install coveralls --user
         - pip install nose --user
+        - python -c 'import site; print(site.getsitepackages())'
         - ls -al $(python -c 'import site; print(site.USER_BASE)')/bin
       script:
         - nosetests --with-coverage --cover-package=terminalplot
