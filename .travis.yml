@@ -19,7 +19,7 @@ matrix:
       script:
         - nosetests --with-coverage --cover-package=terminalplot
       after_success: coveralls
-  include:
+
     - name: "Python 3 on macOS"
       os: osx
       sudo: required
