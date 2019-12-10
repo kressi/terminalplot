@@ -14,10 +14,13 @@ matrix:
       before_install:
         - python --version
         - export PATH=$(python -c 'import site; print(site.USER_BASE)')/bin:$PATH
+        - pip fix-user-path
         - echo $PATH
         - pip install --upgrade pip
       install:
         - pip install coveralls --user
+        - pip show --files coveralls
+        - pip show --files nose
         - pip install nose --user
         - python -c 'import site; print(site.getsitepackages())'
         - ls -al $(python -c 'import site; print(site.USER_BASE)')/bin
