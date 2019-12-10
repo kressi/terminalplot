@@ -10,12 +10,12 @@ matrix:
   include:
     - name: "Python 2 on macOS"
       os: osx
-      sudo: required
       language: generic
       before_install:
         - python --version
+        - export PATH=$(python -c 'import site; print(site.USER_BASE)'):$PATH
       install:
-        - sudo pip install coveralls
+        - pip install coveralls --user
       script:
         - nosetests --with-coverage --cover-package=terminalplot
       after_success: coveralls
