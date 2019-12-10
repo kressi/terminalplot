@@ -1,15 +1,25 @@
 language: python
+
+os:
+  - linux
+  - osx
+  - windows
+
 python:
-- '2.7'
-- '3.5'
-- 'pypy'
-- 'pypy3'
+  - '2.7'
+  - '3.8'
+  - 'pypy'
+  - 'pypy3'
+
 install:
-- pip install coveralls
+  - pip install coveralls
+
 script:
-- nosetests --with-coverage --cover-package=terminalplot
+  - nosetests --with-coverage --cover-package=terminalplot
+
 after_success:
   coveralls
+
 deploy:
   provider: pypi
   user: kressi
@@ -19,6 +29,7 @@ deploy:
   on:
     tags: true
     condition: $TRAVIS_PYTHON_VERSION = '3.5'
+
 deploy:
   provider: pypi
   server: https://test.pypi.org/legacy/
@@ -28,4 +39,3 @@ deploy:
   on:
     branch: develop
     skip_existing: true
-    condition: $TRAVIS_PYTHON_VERSION = '3.5'
