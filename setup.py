@@ -2,7 +2,7 @@ import setuptools
 import codecs
 import os
 
-here = os.path.absos.path(os.path.dirname(__file__))
+here = os.path.abspath(os.path.dirname(__file__))
 
 with codecs.open( os.path.join(here, 'terminalplot','version.py'),
                   encoding='utf-8' ) as f:
