@@ -28,24 +28,22 @@ matrix:
             - pyenv
       sudo: required
       language: generic
+      python: '3.8.0'
       before_install:
-        - pyenv install 3.8.0
-        - pyenv global 3.8.0
-        - which python
-        - which pip
-        - eval "$(pyenv init -)"
-        - which python
+        - pyenv install $PYTHON
+        - export PYENV_VERSION=$PYTHON # eval "$(pyenv init -)"
+        - export PATH="~/.pyenv/shims:${PATH}"
         - python --version
-        - which pip
-        - pip --version
-        - python3 --version
-        - export PATH=/usr/local/Cellar/numpy/1.14.5/libexec/nose/bin:$PATH
-        - sudo pip3 install --upgrade pip
-      install:
-        - sudo pip3 install coveralls
-      script:
-        - nosetests-3.6 --with-coverage --cover-package=terminalplot
-      after_success: coveralls
+#        - which pip
+#        - pip --version
+#        - python3 --version
+#        - export PATH=/usr/local/Cellar/numpy/1.14.5/libexec/nose/bin:$PATH
+#        - sudo pip3 install --upgrade pip
+#      install:
+#        - sudo pip3 install coveralls
+#      script:
+#        - nosetests-3.6 --with-coverage --cover-package=terminalplot
+#      after_success: coveralls
 
 install:
   - pip install coveralls
