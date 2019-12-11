@@ -29,16 +29,10 @@ matrix:
       sudo: required
       language: generic
       before_install:
-        - which python
-        - python --version
-        - which pip
-        - pip --version
         - pyenv install 3.8.0
         - pyenv global 3.8.0
         - which python
-        - python --version
         - which pip
-        - pip --version
         - eval "$(pyenv init -)"
         - which python
         - python --version
