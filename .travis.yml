@@ -19,7 +19,6 @@ matrix:
       cache:
         directories:
           - $HOME/Library/Caches/Homebrew
-          - $HOME/.pyenv/versions
       before_cache:
         - brew cleanup
       before_install:
