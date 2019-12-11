@@ -8,42 +8,31 @@ python:
 
 matrix:
   include:
-    - name: "Python 2 on macOS"
+    - name: "osx: Python 2.7"
       os: osx
       language: generic
       before_install:
         - python --version
         - export PATH=$(python -c 'import site; print(site.USER_BASE)')/bin:$PATH
-        - echo $PATH
+        - export PATH=/usr/local/Cellar/numpy/1.14.5/libexec/nose/bin:$PATH
         - pip install --upgrade pip
       install:
         - pip install coveralls --user
-        - ls -al /usr/local/Cellar/numpy/1.14.5/libexec/nose/lib/python2.7/site-packages
-        - ls -al /usr/local/Cellar/numpy/1.14.5/libexec/nose/lib/python2.7
-        - ls -al /usr/local/Cellar/numpy/1.14.5/libexec/nose/bin
-        - ls -al /usr/local/Cellar/numpy/1.14.5/libexec/nose
-        - loc=$(pip show nose | grep 'Location:')
-        - echo $loc
-        - sp=${'$loc'#'Location '}
-        - echo $sp
-        - ls -al $sp
-        - ls -al $(python -c 'import site; print(site.USER_SITE)')
       script:
         - nosetests --with-coverage --cover-package=terminalplot
       after_success: coveralls
 
-    - name: "Python 3 on macOS"
+    - name: "osx: Python 3.6"
       os: osx
       sudo: required
       language: generic
       before_install:
         - python3 --version
-        - sudo find / -name nosetests
-      install:
+        - pip3 install --upgrade pip
+     install:
         - sudo pip3 install coveralls
-        - sudo pip3 install nose
       script:
-        - nosetests --with-coverage --cover-package=terminalplot
+        - nosetests-3.6 --with-coverage --cover-package=terminalplot
       after_success: coveralls
 
 install:
