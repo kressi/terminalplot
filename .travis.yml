@@ -29,14 +29,20 @@ matrix:
       sudo: required
       language: generic
       before_install:
-        - pyenv install --list
-        - pyenv install 3.7.1
-        - pyenv global 3.7.1
+        - which python
         - python --version
-        - pyenv init
-        - python --version
+        - which pip
         - pip --version
-        - curl https://bootstrap.pypa.io/get-pip.py | python -
+        - pyenv install 3.8.0
+        - pyenv global 3.8.0
+        - which python
+        - python --version
+        - which pip
+        - pip --version
+        - eval "$(pyenv init -)"
+        - which python
+        - python --version
+        - which pip
         - pip --version
         - python3 --version
         - export PATH=/usr/local/Cellar/numpy/1.14.5/libexec/nose/bin:$PATH
