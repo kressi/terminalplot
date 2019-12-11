@@ -18,17 +18,16 @@ matrix:
         - pip install --upgrade pip
       install:
         - pip install coveralls --user
-#      script:
-#        - nosetests --with-coverage --cover-package=terminalplot
-#      after_success: coveralls
 
     - name: "osx: Python 3.8.0"
       os: osx
+      addons:
+        homebrew:
+          packages:
+            - pyenv
       sudo: required
       language: generic
       before_install:
-        - brew update
-        - brew install pyenv
         - pyenv install 3.8.0
         - pyenv global 3.8.0
         - python --version
