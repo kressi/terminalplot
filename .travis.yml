@@ -19,19 +19,20 @@ matrix:
       install:
         - pip install coveralls --user
 
-    - name: "osx: Python 3.8.0"
-      os: osx
+    - os: osx
       addons:
         homebrew:
           update: true
           packages:
             - pyenv
-      sudo: required
       language: generic
       python: '3.8.0'
+      env: # eval "$(pyenv init -)"
+        - PYENV_VERSION: $TRAVIS_PYTHON_VERSION
+        - PATH: '${HOME}/.pyenv/shims:${PATH}'
       before_install:
-        - echo ${TRAVIS_PYTHON_VERSION}
-        - pyenv install ${TRAVIS_PYTHON_VERSION}
+        - echo $TRAVIS_PYTHON_VERSION
+        - pyenv install $TRAVIS_PYTHON_VERSION
         - export PYENV_VERSION=$TRAVIS_PYTHON_VERSION # eval "$(pyenv init -)"
         - export PATH="${HOME}/.pyenv/shims:${PATH}"
         - python --version
