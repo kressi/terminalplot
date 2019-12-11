@@ -1,8 +1,4 @@
-import fcntl
 import os
-import termios
-import struct
-
 
 def plot(x, y, rows=None, columns=None):
     """
@@ -48,11 +44,17 @@ def scale(x, length):
     return [int((i - min(x)) * s) for i in x]
 
 def get_terminal_size():
-    try:
-        with open(os.ctermid(), 'r') as fd:
-            rc = struct.unpack(
-                'hh', fcntl.ioctl(fd, termios.TIOCGWINSZ, '1234'))
+    try: 
+        rc = os.get_terminal_size()
     except:
-        rc = (os.getenv('LINES', 25), os.getenv('COLUMNS', 80))
+      try:
+          import fcntl
+          import termios
+          import struct
+          with open(os.ctermid(), 'r') as fd:
+              rc = struct.unpack(
+                  'hh', fcntl.ioctl(fd, termios.TIOCGWINSZ, '1234'))
+      except:
+          rc = (os.getenv('LINES', 25), os.getenv('COLUMNS', 80))
 
     return rc
