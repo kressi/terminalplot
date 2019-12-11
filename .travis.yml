@@ -18,12 +18,12 @@ matrix:
         - pip install --upgrade pip
       install:
         - pip install coveralls --user
-        - pip show --files coveralls
-        - pip show --files nose | grep 'Location:'
-        - pip install nose --upgrade
-        - pip show --files nose
-        - python -c 'import site; print(site.getsitepackages())'
-        - ls -al $(python -c 'import site; print(site.USER_BASE)')/bin
+        - loc=$(pip show nose | grep 'Location:')
+        - echo $loc
+        - sp=${$loc#'Location '}
+        - echo $sp
+        - ls -al $sp
+        - ls -al $(python -c 'import site; print(site.USER_SITE)')
       script:
         - nosetests --with-coverage --cover-package=terminalplot
       after_success: coveralls
