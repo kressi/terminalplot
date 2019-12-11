@@ -40,7 +40,7 @@ matrix:
         - python3 --version
         - export PATH=/usr/local/Cellar/numpy/1.14.5/libexec/nose/bin:$PATH
         - sudo pip3 install --upgrade pip
-     install:
+      install:
         - sudo pip3 install coveralls
       script:
         - nosetests-3.6 --with-coverage --cover-package=terminalplot
