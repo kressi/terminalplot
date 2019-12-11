@@ -1,10 +1,10 @@
 language: python
 
 python:
-  - '2.7'
+#  - '2.7'
   - '3.8'
-  - 'pypy'
-  - 'pypy3'
+#  - 'pypy'
+#  - 'pypy3'
 
 matrix:
   include:
@@ -18,15 +18,25 @@ matrix:
         - pip install --upgrade pip
       install:
         - pip install coveralls --user
-      script:
-        - nosetests --with-coverage --cover-package=terminalplot
-      after_success: coveralls
+#      script:
+#        - nosetests --with-coverage --cover-package=terminalplot
+#      after_success: coveralls
 
-    - name: "osx: Python 3.6"
+    - name: "osx: Python 3.8.0"
       os: osx
       sudo: required
       language: generic
       before_install:
+        - brew update
+        - brew install pyenv
+        - pyenv install 3.8.0
+        - pyenv global 3.8.0
+        - python --version
+        - pyenv init
+        - python --version
+        - pip --version
+        - curl https://bootstrap.pypa.io/get-pip.py | python -
+        - pip --version
         - python3 --version
         - export PATH=/usr/local/Cellar/numpy/1.14.5/libexec/nose/bin:$PATH
         - sudo pip3 install --upgrade pip
