@@ -13,7 +13,6 @@ matrix:
         homebrew:
           update: true
           packages:
-            - python # avoid 'ERROR:root:code for hash md5 was not found.' of pyenv
             - pyenv
       language: bash
       python: '3.8.0'
@@ -33,10 +32,7 @@ matrix:
       language: bash
       python: '3.8.0'
       before_install:
-        - echo $PATH
         - export PYTHON_VERSION='3.8.0'
-        - choco list python --all
-        - choco help
         - choco install python --version $PYTHON_VERSION
         - python -m pip install --upgrade pip
         - pip install nose
