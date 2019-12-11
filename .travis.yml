@@ -30,9 +30,10 @@ matrix:
       language: generic
       python: '3.8.0'
       before_install:
-        - pyenv install $PYTHON
-        - export PYENV_VERSION=$PYTHON # eval "$(pyenv init -)"
-        - export PATH="~/.pyenv/shims:${PATH}"
+        - echo ${TRAVIS_PYTHON_VERSION}
+        - pyenv install ${TRAVIS_PYTHON_VERSION}
+        - export PYENV_VERSION=$TRAVIS_PYTHON_VERSION # eval "$(pyenv init -)"
+        - export PATH="${HOME}/.pyenv/shims:${PATH}"
         - python --version
 #        - which pip
 #        - pip --version
