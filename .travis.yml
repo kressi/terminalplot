@@ -24,7 +24,7 @@ matrix:
         - brew cleanup
       before_install:
         - export PYENV_VERSION='3.8.0' # eval "$(pyenv init -)"
-        - pyenv install $PYENV_VERSION
+        - pyenv install --skip-existing $PYENV_VERSION
         - export PATH="${HOME}/.pyenv/shims:${PATH}"
         - pip install --upgrade pip
         - pip install nose
