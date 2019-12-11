@@ -28,6 +28,19 @@ matrix:
         - export PATH="${HOME}/.pyenv/shims:${PATH}"
         - pip install upgrade pip
         - pip install nose
+    - os: windows
+      language: generic
+      python: '3.8.0'
+      before_install:
+        - echo $PATH
+        - export PYTHON_VERSION='3.8.0'
+        - choco list python --all
+        - choco help
+        - choco install python --version $PYTHON_VERSION
+        - python -m pip install --upgrade pip
+        - pip install nose
+      env:
+        - PATH=/c/Python38:/c/Python38/Scripts:$PATH
 
 install:
   - pip install coveralls
