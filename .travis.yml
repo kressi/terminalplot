@@ -18,9 +18,13 @@ matrix:
         - pip install --upgrade pip
       install:
         - pip install coveralls --user
+        - ls -al /usr/local/Cellar/numpy/1.14.5/libexec/nose/lib/python2.7/site-packages
+        - ls -al /usr/local/Cellar/numpy/1.14.5/libexec/nose/lib/python2.7
+        - ls -al /usr/local/Cellar/numpy/1.14.5/libexec/nose/bin
+        - ls -al /usr/local/Cellar/numpy/1.14.5/libexec/nose
         - loc=$(pip show nose | grep 'Location:')
         - echo $loc
-        - sp=${$loc#'Location '}
+        - sp=${'$loc'#'Location '}
         - echo $sp
         - ls -al $sp
         - ls -al $(python -c 'import site; print(site.USER_SITE)')
@@ -34,6 +38,7 @@ matrix:
       language: generic
       before_install:
         - python3 --version
+        - sudo find / -name nosetests
       install:
         - sudo pip3 install coveralls
         - sudo pip3 install nose
