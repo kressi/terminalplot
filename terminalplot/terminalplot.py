@@ -1,4 +1,4 @@
-import os
+import shutil
 
 def plot(x, y, rows=None, columns=None):
     """
@@ -45,12 +45,10 @@ def scale(x, length):
 
 def get_terminal_size():
     try: 
-        rc = os.get_terminal_size()
+        rc = shutil.get_terminal_size()
     except:
       try:
-          import fcntl
-          import termios
-          import struct
+          import os, fcntl, termios, struct
           with open(os.ctermid(), 'r') as fd:
               rc = struct.unpack(
                   'hh', fcntl.ioctl(fd, termios.TIOCGWINSZ, '1234'))
