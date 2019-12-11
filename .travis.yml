@@ -28,7 +28,8 @@ matrix:
       language: generic
       before_install:
         - python3 --version
-        - pip3 install --upgrade pip
+        - export PATH=/usr/local/Cellar/numpy/1.14.5/libexec/nose/bin:$PATH
+        - sudo pip3 install --upgrade pip
      install:
         - sudo pip3 install coveralls
       script:
