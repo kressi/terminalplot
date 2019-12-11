@@ -23,13 +23,15 @@ matrix:
       os: osx
       addons:
         homebrew:
+          update: true
           packages:
             - pyenv
       sudo: required
       language: generic
       before_install:
-        - pyenv install 3.8.0
-        - pyenv global 3.8.0
+        - pyenv install --list
+        - pyenv install 3.7.1
+        - pyenv global 3.7.1
         - python --version
         - pyenv init
         - python --version
