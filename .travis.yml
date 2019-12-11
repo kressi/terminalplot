@@ -37,6 +37,9 @@ matrix:
         - pip install nose
       env:
         - PATH=/c/Python38:/c/Python38/Scripts:$PATH
+      script:
+        - nosetests --with-coverage --cover-package=terminalplot terminalplot/test
+
 
 install:
   - pip install coveralls
