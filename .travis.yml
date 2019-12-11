@@ -13,8 +13,9 @@ matrix:
         homebrew:
           update: true
           packages:
+            - python # avoid 'ERROR:root:code for hash md5 was not found.' of pyenv
             - pyenv
-      language: generic
+      language: bash
       python: '3.8.0'
       cache:
         directories:
@@ -26,10 +27,10 @@ matrix:
         - export PYENV_VERSION='3.8.0' # eval "$(pyenv init -)"
         - pyenv install $PYENV_VERSION
         - export PATH="${HOME}/.pyenv/shims:${PATH}"
-        - pip install upgrade pip
+        - pip install --upgrade pip
         - pip install nose
     - os: windows
-      language: generic
+      language: bash
       python: '3.8.0'
       before_install:
         - echo $PATH
