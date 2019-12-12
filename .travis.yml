@@ -40,15 +40,28 @@ matrix:
 
     - stage: deploy
       python: '3.8'
+      if: branch = develop
       install: skip
-      script: skip
+      script: python setup.py verify
       after_success: skip
-      provider: pypi
-      server: https://test.pypi.org/legacy/
-      user: "__token__" # Password provided as environment variable on Travis
-      distributions: sdist bdist_wheel
-      on:
-        branch: develop
+      deploy:
+        provider: pypi
+        server: https://test.pypi.org/legacy/
+        user: "__token__" # Password provided as environment variable on Travis
+        distributions: sdist bdist_wheel
+
+    - stage: deploy
+      python: '3.8'
+      if: branch = master
+      install: skip
+      script: python setup.py verify
+      after_success: skip
+      deploy:
+        provider: pypi
+        user: kressi
+        password:
+          secure: Rw31x5q4kz2Byld5JuboAxEISR4OIrJdobKU1mmJI8CQL8IuZOuv0w8Y7DxljQLzvCigtPFfqXkdARCXiKeYwKUAQaTVRVRf5DpPQsYlnSS8/0b6vr7XEiICkIjQN0CtB/oyXjLA7nZebgeRj45iVf4nDSzyQnjiIXpfIUTqLnA=
+        distributions: sdist bdist_wheel
 
 install:
   - python --version
@@ -62,13 +75,3 @@ script:
 
 after_success:
   - coveralls
-
-deploy:
-  provider: pypi
-  user: kressi
-  password:
-    secure: Rw31x5q4kz2Byld5JuboAxEISR4OIrJdobKU1mmJI8CQL8IuZOuv0w8Y7DxljQLzvCigtPFfqXkdARCXiKeYwKUAQaTVRVRf5DpPQsYlnSS8/0b6vr7XEiICkIjQN0CtB/oyXjLA7nZebgeRj45iVf4nDSzyQnjiIXpfIUTqLnA=
-  distributions: sdist bdist_wheel
-  on:
-    tags: true
-    condition: $TRAVIS_OS_NAME = 'linux' && $TRAVIS_PYTHON_VERSION = '3.8'

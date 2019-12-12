@@ -1,5 +1,6 @@
 import setuptools
 import os
+import sys
 
 here = os.path.abspath(os.path.dirname(__file__))
 version_path = os.path.join(here, 'terminalplot', 'version.py')
@@ -10,6 +11,17 @@ with open(version_path, encoding='utf-8') as f:
 
 with open(readme_path, encoding='utf-8') as f:
     readme = f.read()
+
+class VerifyVersionCommand(setuptools.command.install.install):
+    """Verify that the git tag matches our version"""
+    description = 'Verify that the git tag matches our version'
+
+    def run(self):
+        if os.getenv('TRAVIS_TAG') != 'v'+__version__:
+            info = "Git tag: {0} does not match the version of this app: {1}".format(
+                tag, __version__
+            )
+            sys.exit(info)
 
 setuptools.setup(
     name='terminalplot',
@@ -37,5 +49,8 @@ setuptools.setup(
         'console_scripts': ['plot = terminalplot.command:main']
     },
     test_suite='nose.collector',
-    tests_require=['nose']
+    tests_require=['nose'],
+    cmdclass={
+        'verify': VerifyVersionCommand,
+    }
 )
