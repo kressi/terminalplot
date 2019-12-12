@@ -45,7 +45,8 @@ def scale(x, length):
 
 def get_terminal_size():
     try: 
-        rc = shutil.get_terminal_size()
+        (columns, lines) = shutil.get_terminal_size()
+        rc = (lines, columns)
     except:
       try:
           import os, fcntl, termios, struct
