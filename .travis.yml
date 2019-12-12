@@ -41,7 +41,6 @@ matrix:
     - &stage_deploy
       stage: deploy test
       python: '3.8'
-      if: branch = develop
       install: skip
       script: skip
       after_success: true # step before deploy must not be skipped for deploy to executed
@@ -55,7 +54,6 @@ matrix:
 
     - <<: *stage_deploy
       stage: deploy
-      if: branch = master
       deploy:
         provider: pypi
         user: kressi
