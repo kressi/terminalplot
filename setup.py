@@ -42,5 +42,7 @@ setuptools.setup(
     zip_safe=True,
     entry_points={
         'console_scripts': ['plot = terminalplot.command:main']
-    }
+    },
+    test_suite='nose.collector',
+    tests_require=['nose']
 )
