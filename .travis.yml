@@ -42,7 +42,7 @@ matrix:
       python: '3.8'
       if: branch = develop
       install: skip
-      script: python setup.py verify
+      script: skip
       after_success: skip
       deploy:
         provider: pypi
@@ -54,7 +54,7 @@ matrix:
       python: '3.8'
       if: branch = master
       install: skip
-      script: python setup.py verify
+      script: skip
       after_success: skip
       deploy:
         provider: pypi
@@ -62,6 +62,8 @@ matrix:
         password:
           secure: Rw31x5q4kz2Byld5JuboAxEISR4OIrJdobKU1mmJI8CQL8IuZOuv0w8Y7DxljQLzvCigtPFfqXkdARCXiKeYwKUAQaTVRVRf5DpPQsYlnSS8/0b6vr7XEiICkIjQN0CtB/oyXjLA7nZebgeRj45iVf4nDSzyQnjiIXpfIUTqLnA=
         distributions: sdist bdist_wheel
+        on:
+          tags: true
 
 install:
   - python --version
