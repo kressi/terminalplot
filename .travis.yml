@@ -50,6 +50,8 @@ matrix:
         server: https://test.pypi.org/legacy/
         user: "__token__" # Password provided as environment variable on Travis
         distributions: sdist bdist_wheel
+        on:
+          branch: develop
 
     - <<: *stage_deploy
       stage: deploy
