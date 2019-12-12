@@ -1,5 +1,8 @@
 # Changelog terminalplot
 
+## Version 0.3.0 (2019-12-12)
+- Add support for Windows
+
 ## Version 0.2.5 (2015-05-26)
 - Added tests
 - Changed licence to GPL
