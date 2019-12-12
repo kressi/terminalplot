@@ -1,6 +1,5 @@
 import setuptools
 import os
-import sys
 
 here = os.path.abspath(os.path.dirname(__file__))
 version_path = os.path.join(here, 'terminalplot', 'version.py')
