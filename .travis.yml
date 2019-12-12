@@ -68,12 +68,11 @@ matrix:
 install:
   - python --version
   - pip --version
-  - pip install nose
-  - nosetests --version
+  - pip install coverage #nose - nosetests --version
   - pip install coveralls
 
 script:
-  - nosetests --with-coverage --cover-package=terminalplot
+  - coverage run --source=terminalplot setup.py test #nosetests --with-coverage --cover-package=terminalplot
 
 after_success:
   - coveralls
