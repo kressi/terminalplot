@@ -38,25 +38,23 @@ matrix:
         - choco install python --version $PYTHON_VERSION
         - python -m pip install --upgrade pip
 
-    - stage: deploy to test
+    - &stage_deploy
+      stage: deploy to test
       python: '3.8'
       if: branch = develop
       install: skip
       script: skip
-      after_success: skip
-      deploy: &pypi
+      after_success: true # step before deploy must not be skipped for deploy to executed
+      deploy:
         provider: pypi
         server: https://test.pypi.org/legacy/
         user: "__token__" # Password provided as environment variable on Travis
         distributions: sdist bdist_wheel
 
-    - stage: deploy
-      python: '3.8'
+    - <<: *stage_deploy
+      stage: deploy
       if: branch = master
-      install: skip
-      script: skip
-      after_success: skip
-      deploy: &pypi
+      deploy:
         provider: pypi
         user: kressi
         password:
