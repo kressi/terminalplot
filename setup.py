@@ -1,15 +1,14 @@
 import setuptools
-import codecs
 import os
 
 here = os.path.abspath(os.path.dirname(__file__))
+version_path = os.path.join(here, 'terminalplot', 'version.py')
+readme_path = os.path.join(here, 'README.rst')
 
-with codecs.open( os.path.join(here, 'terminalplot','version.py'),
-                  encoding='utf-8' ) as f:
+with open(version_path, encoding='utf-8') as f:
     exec(f.read())
 
-with codecs.open( os.path.join(here, 'README.rst'),
-                  encoding='utf-8' ) as f:
+with open(readme_path, encoding='utf-8') as f:
     readme = f.read()
 
 setuptools.setup(

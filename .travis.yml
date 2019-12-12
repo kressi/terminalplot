@@ -38,7 +38,6 @@ matrix:
         - python -m pip install --upgrade pip
 
 install:
-  - echo $TRAVIS_PYTHON_VERSION
   - python --version
   - pip --version
   - pip install nose
