@@ -27,6 +27,7 @@ matrix:
         - pip install --upgrade pip
       before_cache:
         - brew cleanup
+
     - os: windows
       language: bash
       python: '3.8.0'
@@ -36,6 +37,18 @@ matrix:
       before_install:
         - choco install python --version $PYTHON_VERSION
         - python -m pip install --upgrade pip
+
+    - stage: deploy
+      python: '3.8'
+      install: skip
+      script: skip
+      after_success: skip
+      provider: pypi
+      server: https://test.pypi.org/legacy/
+      user: "__token__" # Password provided as environment variable on Travis
+      distributions: sdist bdist_wheel
+      on:
+        branch: develop
 
 install:
   - python --version
@@ -58,13 +71,4 @@ deploy:
   distributions: sdist bdist_wheel
   on:
     tags: true
-    condition: $TRAVIS_PYTHON_VERSION = '3.5'
-
-deploy:
-  provider: pypi
-  server: https://test.pypi.org/legacy/
-  user: "__token__" # Password provided as environment variable on Travis
-  distributions: sdist bdist_wheel
-  on:
-    branch: develop
-    condition: $TRAVIS_OS_NAME == 'linux' && $TRAVIS_PYTHON_VERSION = '3.8'
+    condition: $TRAVIS_OS_NAME = 'linux' && $TRAVIS_PYTHON_VERSION = '3.8'
