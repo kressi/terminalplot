@@ -39,7 +39,7 @@ matrix:
         - python -m pip install --upgrade pip
 
     - &stage_deploy
-      stage: deploy to test
+      stage: deploy test
       python: '3.8'
       if: branch = develop
       install: skip

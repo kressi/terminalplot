@@ -13,9 +13,9 @@ with open(readme_path, encoding='utf-8') as f:
 
 
 def version():
-    if os.getenv('TRAVIS_BUILD_STAGE_NAME', '') == 'Deploy to test':
+    if os.getenv('TRAVIS_BUILD_STAGE_NAME', '') == 'Deploy test':
         return __version__ + '.' + os.getenv('TRAVIS_BUILD_NUMBER', '')
-    else
+    else:
         return __version__
 
 setuptools.setup(
