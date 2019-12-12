@@ -19,33 +19,36 @@ matrix:
       cache:
         directories:
           - $HOME/Library/Caches/Homebrew
+      env: # eval "$(pyenv init -)"
+        - PYENV_VERSION='3.8.0'
+        - PATH="${HOME}/.pyenv/shims:${PATH}"
+      before_install:
+        - pyenv install --skip-existing $PYENV_VERSION
+        - pip install --upgrade pip
       before_cache:
         - brew cleanup
-      before_install:
-        - export PYENV_VERSION='3.8.0' # eval "$(pyenv init -)"
-        - pyenv install --skip-existing $PYENV_VERSION
-        - export PATH="${HOME}/.pyenv/shims:${PATH}"
-        - pip install --upgrade pip
-        - pip install nose
     - os: windows
       language: bash
       python: '3.8.0'
-      before_install:
-        - export PYTHON_VERSION='3.8.0'
-        - choco install python --version $PYTHON_VERSION
-        - python -m pip install --upgrade pip
-        - pip install nose
       env:
         - PATH=/c/Python38:/c/Python38/Scripts:$PATH
+        - PYTHON_VERSION='3.8.0'
+      before_install:
+        - choco install python --version $PYTHON_VERSION
+        - pip install --upgrade pip
 
 install:
+  - python --version
+  - pip --version
+  - pip install nose
+  - nosetests --version
   - pip install coveralls
 
 script:
   - nosetests --with-coverage --cover-package=terminalplot
 
 after_success:
-  coveralls
+  - coveralls
 
 deploy:
   provider: pypi
