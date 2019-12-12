@@ -35,7 +35,7 @@ matrix:
         - PYTHON_VERSION='3.8.0'
       before_install:
         - choco install python --version $PYTHON_VERSION
-        - pip install --upgrade pip
+        - python -m pip install --upgrade pip
 
 install:
   - echo $TRAVIS_PYTHON_VERSION
