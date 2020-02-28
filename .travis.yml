@@ -71,7 +71,7 @@ install:
   - pip install coveralls
 
 script:
-  - nosetests --with-coverage --cover-package=terminalplot
+  - nosetests --with-coverage --cover-package=terminalplot --exe
 
 after_success:
   - coveralls
