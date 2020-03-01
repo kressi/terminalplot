@@ -66,20 +66,13 @@ matrix:
 install:
   - python --version
   - pip --version
-  - pip install nose
-  - nosetests --version
   - pip install pytest
   - pip install pytest-cov
   - pytest --version
-  - pip install coverage
-  - coverage --version
   - pip install coveralls
 
 script:
-  #- coverage run -m pytest
-  #- coverage report -m
   - pytest --cov=terminalplot
-  #- nosetests --with-coverage --cover-package=terminalplot
 
 after_success:
   - coveralls
