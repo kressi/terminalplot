@@ -75,8 +75,9 @@ install:
   - pip install coveralls
 
 script:
-  - coverage run -m pytest
-  - coverage report -m
+  #- coverage run -m pytest
+  #- coverage report -m
+  - pytest --cov=terminalplot
   #- nosetests --with-coverage --cover-package=terminalplot
 
 after_success:
