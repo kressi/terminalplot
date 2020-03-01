@@ -68,10 +68,16 @@ install:
   - pip --version
   - pip install nose
   - nosetests --version
+  - pip install pytest
+  - pytest --version
+  - pip install coverage
+  - coverage --version
   - pip install coveralls
 
 script:
-  - nosetests --with-coverage --cover-package=terminalplot
+  - coverage run -m pytest
+  - coverage report -m
+  #- nosetests --with-coverage --cover-package=terminalplot
 
 after_success:
   - coveralls
