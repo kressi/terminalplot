@@ -5,8 +5,9 @@ def plot(x, y, rows=None, columns=None):
     x, y list of values on x- and y-axis
     plot those values within canvas size (rows and columns)
     """
-    if not rows or not columns:
-        rows, columns = get_terminal_size()
+    def_row, def_col = get_terminal_size()
+    rows = rows if rows else def_row
+    columns = columns if columns else def_col
     # offset for caption
     rows -= 4
 
