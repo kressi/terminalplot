@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "terminalplot"
+authors = [
+  {"name" = "Michael Kressibucher", "email" = "michael.kressibucher@gmail.com"}
+]
+description = "Plot points in terminal"
+readme = "README.rst"
+license = {"file" = "LICENCE.txt"}
+requires-python = ">3.3"
+keywords = ["plot", "terminal", "graph", "console"]
+classifiers = [
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Programming Language :: Python :: 3",
+  "Environment :: Console",
+  "Operating System :: POSIX",
+  "Topic :: Scientific/Engineering :: Visualization"
+]
+dynamic = ["version"]
+
+[project.urls]
+Source = "https://github.com/kressi/terminalplot"
+
+[project.scripts]
+plot = "terminalplot.command:main"
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-cov",
+  "ruff",
+  "black",
+  "mypy"
+]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+local_scheme = "no-local-version"
+
+[tool.hatch.build]
+only-packages = true
+
+[tool.hatch.build.hooks.vcs]
+version-file = "terminalplot/_version.py"
+
+[tool.black]
+line-length = 79
+
+[tool.mypy]
+warn_unused_configs = true
+# strict = true

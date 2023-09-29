@@ -2,17 +2,14 @@
 terminalplot
 ************
 
-.. image:: https://travis-ci.org/kressi/terminalplot.svg
-    :alt: Build Status
-    :target: https://travis-ci.org/kressi/terminalplot
 .. image:: https://img.shields.io/pypi/v/terminalplot.svg
     :alt: PyPi Version
     :target: https://pypi.python.org/pypi/terminalplot
 .. image:: https://codeclimate.com/github/kressi/terminalplot/badges/gpa.svg
     :target: https://codeclimate.com/github/kressi/terminalplot
     :alt: Code Climate
-.. image:: https://coveralls.io/repos/github/kressi/terminalplot/badge.svg
-    :target: https://coveralls.io/github/kressi/terminalplot
+.. image:: https://codecov.io/gh/kressi/terminalplot/graph/badge.svg?token=WCyd0O14aA
+    :target: https://codecov.io/gh/kressi/terminalplot
     :alt: Test Coverage
 
 Terminalplot is a minimalistic packgage, that only prints points

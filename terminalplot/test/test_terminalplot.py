@@ -1,14 +1,11 @@
-import unittest
 import sys
+import unittest
 from contextlib import contextmanager
-
-if sys.version_info.major > 2:
-    from io import StringIO
-else:
-    from StringIO import StringIO
+from io import StringIO
 
 import terminalplot
 from terminalplot import command as cli
+
 
 @contextmanager
 def capture_sys_output():
@@ -19,33 +16,31 @@ def capture_sys_output():
     finally:
         sys.stdout = sys.__stdout__
 
-class TestTerminalPlot(unittest.TestCase):
 
+class TestTerminalPlot(unittest.TestCase):
     def test_get_size(self):
         rows, columns = terminalplot.get_terminal_size()
         self.assertIsInstance(rows, int)
         self.assertIsInstance(columns, int)
 
     def test_plot(self):
-
         with capture_sys_output() as stdout:
-            terminalplot.plot( x=[1,2,3], y=[1,2,3], rows=7, columns=3 )
-        
-        expected_output = ( "  *\n"
-                            " * \n"
-                            "*  \n"
-                            "\nMin x: 1 Max x: 3 Min y: 1 Max y: 3\n" )
+            terminalplot.plot(x=[1, 2, 3], y=[1, 2, 3], rows=7, columns=3)
 
-        self.assertEqual(stdout.getvalue(), expected_output)        
+        expected_output = (
+            "  *\n" " * \n" "*  \n" "\nMin x: 1 Max x: 3 Min y: 1 Max y: 3\n"
+        )
+
+        self.assertEqual(stdout.getvalue(), expected_output)
+
 
 class TestCommand(unittest.TestCase):
-
     def test_list_floats(self):
         self.assertEqual(cli.list_floats("1 0.1 -0.3"), [1, 0.1, -0.3])
 
     def test_parser(self):
         parser = cli.make_parser()
-        args   = parser.parse_args(['-x', '1 0.1 -0.3', '-y', '5 0 0'])
+        args = parser.parse_args(["-x", "1 0.1 -0.3", "-y", "5 0 0"])
         self.assertEqual(args.x, [1, 0.1, -0.3])
         self.assertEqual(args.y, [5, 0, 0])
         self.assertFalse(args.terminal_size)

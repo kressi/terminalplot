@@ -1,5 +1,11 @@
 # Changelog terminalplot
 
+## Version 0.4.0 (2023-09-30)
+- Move CI/CD to GitHub Actions
+- Add black, ruff and mypy
+- Move to codecov.io from coveralls.io
+- Move to Python 3.11
+
 ## Version 0.3.0 (2019-12-12)
 - Add support for Windows
 
